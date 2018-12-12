@@ -1,16 +1,20 @@
 # 配置文件
->client端需要配置/tzagent/tzmsg/conf/server.ini  
+>client端需要配置/etc/msg_service.ini
 ```
 [server]  
-ip = 50052  
-port = 10.0.0.1
+ip = 10.0.0.1 
+port = 50052 
 ```
 
->服务端需要配置mq: /tzagent/tzmsg/conf/mq.ini    #消息推送至队列
+>服务端需要配置mq: /etc/msg_service.ini    #消息推送至队列
 ```
-[rabbit_mq]  
+[server]
+ip = 10.0.0.1
+port = 50052
+
+[rabbit_mq]
 user = username
 passwd = pass
-ip = 127.0.0.1  #mq队列的服务地址
-port = 5672  
+ip = ip
+port = 5672
 ```
