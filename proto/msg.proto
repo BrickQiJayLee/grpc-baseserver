@@ -1,0 +1,20 @@
+//proto/msg.proto
+syntax = "proto3"; //指定proto版本
+
+package proto; //指定包名
+
+//定义消息传递服务
+service Msg {
+    //Msg
+    rpc SendMsg(MsgRequest) returns (MsgReply) {}
+}
+
+//MsgRequest请求结构
+message MsgRequest {
+    string name = 1;
+}
+
+//MsgReply响应结构
+message MsgReply {
+    string message = 1;
+}
