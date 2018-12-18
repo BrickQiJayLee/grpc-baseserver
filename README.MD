@@ -1,9 +1,15 @@
 # 配置文件
 >client端需要配置/etc/msg_service.ini
 ```
+<<<<<<< HEAD
 [server]
 ip = 10.0.0.1
 port = 50052
+=======
+[server]  
+ip = 10.0.0.1 
+port = 50052 
+>>>>>>> 15a92fe05d52b97e466a1446518abccd94502987
 ```
 
 >服务端需要配置mq: /etc/msg_service.ini    #消息推送至队列
