@@ -28,13 +28,14 @@ func ms_server_config() (string, string) {
 }
 
 func main() {
-	ip, port := ms_server_config()
-	//client_ip := ms_client_conifg()
-	Address := ip + ":" + port
-	fmt.Println(Address)
+    ip, port := ms_server_config()
+    //client_ip := ms_client_conifg()
+    Address := ip + ":" + port
+    fmt.Println(Address)
     conn, err := grpc.Dial(Address, grpc.WithInsecure())
     if err != nil {
         log.Fatalln(err)
+	os.Exit(-1)
     }
 	defer conn.Close()
 	
