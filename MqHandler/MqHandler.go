@@ -32,14 +32,15 @@ func GetMQConfig() (string, string, string, string) {
 	passwd := ini_parser.GetString("rabbit_mq", "passwd")
 	ip := ini_parser.GetString("rabbit_mq", "ip")
 	port := ini_parser.GetString("rabbit_mq", "port")
-	return user, passwd, ip, port
+	vhost := ini_parser.GetString("rabbit_mq", "vhost")
+	return user, passwd, ip, port, vhost
 }
 
 
 func SetupRMQ() (err error) {
 	if channel == nil {
-	    mq_user, mq_passwd, mq_ip, mq_port := GetMQConfig()
-		rmqAddr := "amqp://" + mq_user + ":" + mq_passwd + "@" + mq_ip + ":" + mq_port + "/"
+	    mq_user, mq_passwd, mq_ip, mq_port, mq_vhost := GetMQConfig()
+		rmqAddr := "amqp://" + mq_user + ":" + mq_passwd + "@" + mq_ip + ":" + mq_port + "/" + mq_vhost
 		fmt.Printf(rmqAddr)
 		conn, err := amqp.Dial(rmqAddr) // 建立连接
 		failOnError(err, "Failed to connect to RabbitMQ")
