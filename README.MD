@@ -31,5 +31,4 @@ mac系统需要交叉编译才能在linux上运行：
 ```GOOS=linux GOARCH=amd64 go build server.go```
 
 # 部署：
-将编译好的二进制文件放入tezign-config-center/playbooks/ops/role/tzmsg/files
-运维机上执行```ansible-playbook playbooks/ops/tzmsg.yml -i hosts/ali_all.yml  --extra-vars "host=all"```
+部署到主机
